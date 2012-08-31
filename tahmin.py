@@ -32,9 +32,3 @@ if tahmin == sayı:
 if tahmin != sayı:
     sayı = str(sayı)
     print('Bulamadın. Tuttuğum sayı ' + sayı + ' idi')
-    
-        
-    
-    
-
-
