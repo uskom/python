@@ -1,6 +1,6 @@
 print('bilmece bildirmece, el üstünde kaydırmaca sabun. bu nedir?')
 input()
-print('sabun')
+print('\"sabun\"')
 print()
 print('şaban şimdi sıra sende konuş.')
 print('ne diyeceeem?')
