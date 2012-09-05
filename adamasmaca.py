@@ -82,7 +82,7 @@ def oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, rastgele
             
     for harf in boşluklar:
         print(harf, end=' ')
-        print()
+    print()
     
 def harfIste(tahminEdilenHarfler):
     # Kullanıcının girdiği harfi döndürür
@@ -93,7 +93,7 @@ def harfIste(tahminEdilenHarfler):
         if (len(tahmin) != 1):
             print('Lütfen bir harf giriniz')
         elif tahmin in tahminEdilenHarfler:
-            print('Zaten bu harfi kullanmıştınız. Tekrar bir harf seçin')
+            print('Zaten bu harfi kullanmıştınız. Tekrar deneyin')
         elif tahmin not in 'abcçdefgğhıijklmnoöprsştuüvyz':
             print('Lütfen bir HARF girin')
         else:
@@ -114,7 +114,7 @@ while True:
     oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, gizliKelime)
 
     # Kullanıcıdan bir harf iste
-    tahmin = harfIste(doğruHarfler + kullanılanHarfler)
+    tahmin = harfIste(kullanılanHarfler + doğruHarfler)
 
     if tahmin in gizliKelime:
         doğruHarfler = doğruHarfler + tahmin
@@ -125,26 +125,26 @@ while True:
             if gizliKelime[i] not in doğruHarfler:
                 tümHarfleriBildi = False
                 break
-            if tümHarfleriBildi:
-                print('Evet! Gizli kelime "' + gizliKelime + '" idi! Oyunu kazandınız!')
-                oyunBitti = True
-        else:
-            kullanılanHarfler = kullanılanHarfler + tahmin
+        if tümHarfleriBildi:
+            print('Evet! Gizli kelime "' + gizliKelime + '" idi! Oyunu kazandınız!')
+            oyunBitti = True
+    else:
+        kullanılanHarfler = kullanılanHarfler + tahmin
 
-            # Oyuncu tüm haklarını kullanıp kaybetti mi
-            if len(kullanılanHarfler) == len(resimler) - 1:
-                oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, gizliKelime)
-                print('You have run out of guesses!\nAfter ' + str(len(kullanılanHarfler))
-                      + ' missed guesses and ' + str(len(doğruHarfler))
-                      + ' correct guesses, the word was "' + gizliKelime + '"')
-                oyunBitti = True
+        # Oyuncu tüm haklarını kullanıp kaybetti mi
+        if len(kullanılanHarfler) == len(resimler) - 1:
+            oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, gizliKelime)
+            print('Oyunu kaybettiniz!\n')
+            print(str(len(doğruHarfler)) + ' harfi bildiniz ' + str(len(kullanılanHarfler)), end = ' ')
+            print('harfi bilemediniz. Kelime ' + gizliKelime + ' idi.')
+            oyunBitti = True
                 
-        # Oyun bittiyse kullanıcıya tekrar oynamak isteyip istemediğini sor
-        if oyunBitti:
-            if tekrarOynamakİstiyor():
-                kullanılanHarfler = ''
-                doğruHarfler = ''
-                oyunBitti = False
-                gizliKelime = rastgeleKelimeSeç(kelimeler)
-            else:
-                break
+    # Oyun bittiyse kullanıcıya tekrar oynamak isteyip istemediğini sor
+    if oyunBitti:
+        if tekrarOynamakİstiyor():
+            kullanılanHarfler = ''
+            doğruHarfler = ''
+            oyunBitti = False
+            gizliKelime = rastgeleKelimeSeç(kelimeler)
+        else:
+            break
