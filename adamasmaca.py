@@ -1,6 +1,6 @@
 import random
 
-resimler = ['''
+RESIMLER = ['''
 
   +---+
   |   |
@@ -65,8 +65,8 @@ def rastgeleKelimeSeç(kelimeListesi):
     no = random.randint(0, len(kelimeListesi) - 1)
     return kelimeListesi[no]
 
-def oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, rastgeleKelime):
-    print(resimler[len(kullanılanHarfler)])
+def oyunTahtasınıGöster(RESIMLER, kullanılanHarfler, doğruHarfler, rastgeleKelime):
+    print(RESIMLER[len(kullanılanHarfler)])
     print()
 
     print('Kullanılan harfler:', end = ' ')
@@ -111,7 +111,7 @@ gizliKelime = rastgeleKelimeSeç(kelimeler)
 oyunBitti = False
 
 while True:
-    oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, gizliKelime)
+    oyunTahtasınıGöster(RESIMLER, kullanılanHarfler, doğruHarfler, gizliKelime)
 
     # Kullanıcıdan bir harf iste
     tahmin = harfIste(kullanılanHarfler + doğruHarfler)
@@ -132,8 +132,8 @@ while True:
         kullanılanHarfler = kullanılanHarfler + tahmin
 
         # Oyuncu tüm haklarını kullanıp kaybetti mi
-        if len(kullanılanHarfler) == len(resimler) - 1:
-            oyunTahtasınıGöster(resimler, kullanılanHarfler, doğruHarfler, gizliKelime)
+        if len(kullanılanHarfler) == len(RESIMLER) - 1:
+            oyunTahtasınıGöster(RESIMLER, kullanılanHarfler, doğruHarfler, gizliKelime)
             print('Oyunu kaybettiniz!\n')
             print(str(len(doğruHarfler)) + ' harfi bildiniz ' + str(len(kullanılanHarfler)), end = ' ')
             print('harfi bilemediniz. Kelime ' + gizliKelime + ' idi.')
