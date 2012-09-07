@@ -56,7 +56,23 @@ RESIMLER = ['''
  /|\  |
  / \  |
       |
-=========''']
+=========''', '''
+
+  +----+
+  |    |
+ [O    |
+ /|\   |
+ / \   |
+       |
+==========''', '''
+
+  +----+
+  |    |
+ [O]   |
+ /|\   |
+ / \   |
+       |
+==========''']
 
 kelimeler = 'karınca porsuk yarasa ayı kunduz deve kedi istiridye kobra puma çakal karga geyik köpek eşek ördek kartal gelincik tilki kurbağa keçi kaz şahin aslan kertenkele lama köstebek maymun geyik fare panda papağan güvercin tavşan koç gergedan köpekbalığı koyun yılan örümcek leylek kuğu kaplan kurbağa alabalık hindi kaplumbağa gelincik balina kurt zebra'.split()
 
