@@ -94,7 +94,7 @@ def harfIste(tahminEdilenHarfler):
             print('Lütfen bir harf giriniz')
         elif tahmin in tahminEdilenHarfler:
             print('Zaten bu harfi kullanmıştınız. Tekrar deneyin')
-        elif tahmin not in 'abcçdefgğhıijklmnoöprsştuüvyz':
+        elif tahmin not in 'abcçdefgğhıijklmnoöprsştuüvyzqwx':
             print('Lütfen bir HARF girin')
         else:
             return tahmin
