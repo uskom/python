@@ -74,12 +74,27 @@ RESIMLER = ['''
        |
 ==========''']
 
-kelimeler = 'karınca porsuk yarasa ayı kunduz deve kedi istiridye kobra puma çakal karga geyik köpek eşek ördek kartal gelincik tilki kurbağa keçi kaz şahin aslan kertenkele lama köstebek maymun geyik fare panda papağan güvercin tavşan koç gergedan köpekbalığı koyun yılan örümcek leylek kuğu kaplan kurbağa alabalık hindi kaplumbağa gelincik balina kurt zebra'.split()
+kelimeler = {'Renkler':'kırmızı turuncu sarı yeşil mavi lacivert mor beyaz siyah \
+             kahverengi'.split(),
+             'Şekiller':'kare üçgen dörtgen daire elips beşgen altıgen yedigen \
+             sekizgen'.split(),
+             'Meyveler':'elma armut kiraz üzüm muz karpuz kavun çilek greyfurt \
+             portakal'.split(),
+             'Hayvanlar':'karınca porsuk yarasa ayı kunduz deve kedi istiridye kobra \
+             puma çakal karga geyik köpek ördek kartal gelincik tilki kurbağa keçi \
+             kaz şahin aslan kertenkele lama köstebek maymun geyik panda papağan \
+             güvercin tavşan koç gergedan köpekbalığı koyun yılan örümcek leylek \
+             kuğu kaplan kurbağa alabalık hindi kaplumbağa gelincik balina kurt \
+             zebra'.split()}
 
-def rastgeleKelimeSeç(kelimeListesi):
-    # Bu işlev kendisine geçilen listeden rastgele bir kelime seçer
-    no = random.randint(0, len(kelimeListesi) - 1)
-    return kelimeListesi[no]
+def rastgeleKelimeSeç(sözlük):
+    #  Bu işlev kendisine geçilen sözlükten rastgele bir kelime seçer
+    #  İlkönce rastgele bir anahtar seç
+    anahtar = random.choice(list(sözlük.keys()))
+
+    #  Sonra listeden rastgele bir kelime seç
+    no = random.randint(0, len(sözlük[anahtar]) - 1)
+    return [sözlük[anahtar][no], anahtar]
 
 def oyunTahtasınıGöster(RESIMLER, kullanılanHarfler, doğruHarfler, rastgeleKelime):
     print(RESIMLER[len(kullanılanHarfler)])
@@ -95,11 +110,11 @@ def oyunTahtasınıGöster(RESIMLER, kullanılanHarfler, doğruHarfler, rastgele
     for i in range(len(gizliKelime)): # boşlukları doğru tahmin edilen harflerle yer değiştir
         if gizliKelime[i] in doğruHarfler:
             boşluklar = boşluklar[:i] + gizliKelime[i] + boşluklar[i + 1:]
-            
+
     for harf in boşluklar:
         print(harf, end=' ')
     print()
-    
+
 def harfIste(tahminEdilenHarfler):
     # Kullanıcının girdiği harfi döndürür
     while True:
@@ -114,7 +129,7 @@ def harfIste(tahminEdilenHarfler):
             print('Lütfen bir HARF girin')
         else:
             return tahmin
-        
+
 def tekrarOynamakİstiyor():
     # Eğer kullanıcı tekrar oynamak istiyorsa bu işlev True döndürür aksi halde False döndürür
     print('Tekrar oynamak istermisin? (evet hayır)')
@@ -124,6 +139,8 @@ print('A D A M  A S M A C A')
 kullanılanHarfler = ''
 doğruHarfler = ''
 gizliKelime = rastgeleKelimeSeç(kelimeler)
+gizliAnahtar = gizliKelime[1]
+gizliKelime = gizliKelime[0]
 oyunBitti = False
 
 while True:
@@ -154,7 +171,7 @@ while True:
             print(str(len(doğruHarfler)) + ' harfi bildiniz ' + str(len(kullanılanHarfler)), end = ' ')
             print('harfi bilemediniz. Kelime ' + gizliKelime + ' idi.')
             oyunBitti = True
-                
+
     # Oyun bittiyse kullanıcıya tekrar oynamak isteyip istemediğini sor
     if oyunBitti:
         if tekrarOynamakİstiyor():
@@ -162,5 +179,7 @@ while True:
             doğruHarfler = ''
             oyunBitti = False
             gizliKelime = rastgeleKelimeSeç(kelimeler)
+            gizliAnahtar = gizliKelime[1]
+            gizliKelime = gizliKelime[0]
         else:
             break
