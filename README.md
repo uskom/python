@@ -3,6 +3,8 @@ adresten ücretsiz olarak okuyabilirsiniz ya da satın alabilirsiniz.
 
 http://inventwithpython.com
 
+![kitapkapak](https://raw.github.com/erdemoncel/python/master/kitapkapak.jpg)
+
 Kurulum
 -------
 Kodları çalıştırmak için aşağıdaki kütüphanelerini yüklemeniz yeterli.
@@ -24,6 +26,3 @@ demeniz yeterli. Eğer `git` kullanmıyorsanız [buradan] (https://github.com/er
 dosyayı indirebilirsiniz.
 
 Örneğin adam asmaca oyununu çalıştırmak için uç birimden `python3 adamasmaca.py` komutlarını vermeniz yeterli.
-
-
-
