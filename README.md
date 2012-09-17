@@ -13,7 +13,7 @@ Kodları çalıştırmak için aşağıdaki kütüphanelerini yüklemeniz yeterl
 
 Ubuntu altında 
 ```shell
-$ sudo apt-get install allegro3 idle3
+$ sudo apt-get install python3 idle3
 ```
 komutlarıyla Python3 ve Idle3'ü yükleyebilirsiniz.
 
